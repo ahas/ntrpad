@@ -2038,7 +2038,6 @@ checksum = "72ef4a56884ca558e5ddb05a1d1e7e1bfd9a68d9ed024c21704cc98872dae1bb"
 name = "ntrpad"
 version = "0.1.0"
 dependencies = [
- "glob",
  "serde",
  "serde_json",
  "tauri",
