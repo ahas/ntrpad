@@ -1,0 +1,7 @@
+**/node_modules
+src-tauri/**/*
+src-nuxt/.nuxt
+src-nuxt/.output
+src-nuxt/dist
+src-nuxt/static
+src-nuxt/public

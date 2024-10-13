@@ -1,0 +1,36 @@
+{
+  "name": "ntrpad-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tauri:build": "tauri build",
+    "tauri:dev": "tauri dev",
+    "start:release": "src-tauri/target/release/tauri-app",
+    "nuxt:generate": "nuxt generate",
+    "nuxt:preview": "nuxt preview",
+    "format": "cd src-tauri && cargo fmt && cd .. && prettier --write .",
+    "clippy": "cd src-tauri && cargo clippy",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@pinia/nuxt": "^0.5.5",
+    "@tauri-apps/api": ">=2.0.0",
+    "@tauri-apps/plugin-shell": ">=2.0.0",
+    "dayjs": "^1.11.13",
+    "nuxt": "^3.13.0",
+    "vue": "latest",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": ">=2.0.0",
+    "@vueuse/core": "^11.1.0",
+    "@vueuse/nuxt": "^11.1.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.79.4",
+    "typescript": "^5.6.2",
+    "vite-plugin-vuetify": "^2.0.4",
+    "vuetify": "^3.7.2"
+  }
+}
