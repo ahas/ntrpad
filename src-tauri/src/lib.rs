@@ -97,8 +97,9 @@ fn save_as(handle: tauri::AppHandle, contents: &str) {
 
   // !bug: blocking_save_file does not work on Linux
   handle.dialog().file().add_filter("Text Files", &["txt"]).save_file(move |file_path| {
-    let Some(file_path) = file_path else { return };
-    let Some(file_path) = file_path.as_path() else { return };
+    let Some(file_path) = file_path.and_then(|x| x.into_path().ok()) else {
+      return;
+    };
 
     let mut file = File::create(&file_path).unwrap();
     file.write_all(contents.as_bytes()).unwrap();
