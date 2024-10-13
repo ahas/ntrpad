@@ -36,7 +36,7 @@ fn open_file(handle: tauri::AppHandle, state: State<'_, AppState>) {
   let h = handle.clone();
   let state = state.inner().clone();
 
-  // !bug: blocking_pick_file does not work on Linux
+  // !BUG: blocking_pick_file does not work on Linux
   handle.dialog().file().pick_file(move |file_path| {
     let Some(file_path) = file_path.and_then(|x| x.into_path().ok()) else {
       h.emit("file-opening-canceled", ()).unwrap();
@@ -62,7 +62,7 @@ fn save(handle: tauri::AppHandle, state: State<'_, AppState>, contents: &str) {
   let state = state.inner().clone();
 
   if is_first_save {
-    // !bug: blocking_save_file does not work on Linux
+    // !BUG: blocking_save_file does not work on Linux
     handle.dialog().file().add_filter("Text Files", &["txt"]).save_file(move |file_path| {
       let Some(file_path) = file_path.and_then(|x| x.into_path().ok()) else {
         h.emit("file-saving-canceled", ()).unwrap();
